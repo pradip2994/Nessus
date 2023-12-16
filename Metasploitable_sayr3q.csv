@@ -1,0 +1,646 @@
+Plugin ID,CVE,CVSS v2.0 Base Score,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output,STIG Severity,CVSS v3.0 Base Score,CVSS v2.0 Temporal Score,CVSS v3.0 Temporal Score,VPR Score,Risk Factor,BID,XREF,MSKB,Plugin Publication Date,Plugin Modification Date,Metasploit,Core Impact,CANVAS
+"10107","","","None","172.31.25.29","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+  remote web server.","n/a","","The remote web server type is :
+
+Apache/2.4.7 (Ubuntu)","","","","","","None","","IAVT:0001-T-0931","","2000/01/04","2020/10/30","","",""
+"10267","","","None","172.31.25.29","tcp","22","SSH Server Type and Version Information","An SSH server is listening on this port.","It is possible to obtain information about the remote SSH server by
+sending an empty authentication request.","n/a","","
+SSH version : SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2
+SSH supported authentication : publickey,password
+","","","","","","None","","IAVT:0001-T-0933","","1999/10/12","2020/09/22","","",""
+"10287","","","None","172.31.25.29","udp","0","Traceroute Information","It was possible to obtain traceroute information.","Makes a traceroute to the remote host.","n/a","","For your information, here is the traceroute from 172.31.31.11 to 172.31.25.29 : 
+172.31.31.11
+172.31.25.29
+
+Hop Count: 1
+","","","","","","None","","","","1999/11/27","2023/12/04","","",""
+"10704","CVE-2001-0731","5.0","Medium","172.31.25.29","tcp","80","Apache Multiviews Arbitrary Directory Listing","The remote web server is affected by an information disclosure
+vulnerability.","The Apache web server running on the remote host is affected by an
+information disclosure vulnerability. An unauthenticated, remote
+attacker can exploit this, by sending a crafted request, to display a
+listing of a remote directory, even if a valid index file exists in
+the directory.
+
+For Apache web server later than 1.3.22, review listing directory
+configuration to avoid disclosing sensitive information","Upgrade to Apache version 1.3.22 or later. Alternatively, as a
+workaround, disable Multiviews.","http://www.nessus.org/u?f39e976b
+http://www.nessus.org/u?a96611bc
+http://www.nessus.org/u?c1c382bc","
+Nessus was able to exploit the issue using the following request :
+
+http://ip-172-31-25-29.us-east-2.compute.internal/?M=A
+
+
+This produced the following truncated output (limited to 10 lines) :
+------------------------------ snip ------------------------------
+<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 3.2 Final//EN"">
+<html>
+<head>
+<title>Index of /</title>
+</head>
+<body>
+<h1>Index of /</h1>
+<table>
+<tr><th valign=""top""><img src=""/icons/blank.gif"" alt=""[ICO]""></th><th><a href=""?C=N;O=D"">Name</a></th><th><a href=""?C=M;O=A"">Last modified</a></th><th><a href=""?C=S;O=A"">Size</a></th><th><a href=""?C=D;O=A"">Description</a></th></tr>
+<tr><th colspan=""5""><hr></th></tr>
+[...]
+
+------------------------------ snip ------------------------------
+","","5.3","3.9","4.8","2.2","Medium","3009","OWASP:OWASP-CM-004;EDB-ID:21002","","2016/02/16","2020/10/21","","",""
+"10881","","","None","172.31.25.29","tcp","22","SSH Protocol Versions Supported","A SSH server is running on the remote host.","This plugin determines the versions of the SSH protocol supported by
+the remote SSH daemon.","n/a","","The remote SSH daemon supports the following versions of the
+SSH protocol :
+
+  - 1.99
+  - 2.0
+","","","","","","None","","","","2002/03/06","2021/01/19","","",""
+"11219","","","None","172.31.25.29","tcp","22","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 22/tcp was found to be open","","","","","","None","","","","2009/02/04","2023/09/25","","",""
+"11219","","","None","172.31.25.29","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open","","","","","","None","","","","2009/02/04","2023/09/25","","",""
+"11936","","","None","172.31.25.29","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Linux Kernel 3.13 on Ubuntu 14.04 (trusty)
+Confidence level : 95
+Method : HTTP
+
+ 
+The remote host is running Linux Kernel 3.13 on Ubuntu 14.04 (trusty)","","","","","","None","","","","2003/12/09","2023/11/08","","",""
+"12053","","","None","172.31.25.29","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the fully qualified domain name (FQDN) of
+the remote host.","n/a","","
+172.31.25.29 resolves as ip-172-31-25-29.us-east-2.compute.internal.
+","","","","","","None","","","","2004/02/11","2017/04/14","","",""
+"18261","","","None","172.31.25.29","tcp","0","Apache Banner Linux Distribution Disclosure","The name of the Linux distribution running on the remote host was
+found in the banner of the web server.","Nessus was able to extract the banner of the Apache web server and
+determine which Linux distribution the remote host is running.","If you do not wish to display this information, edit 'httpd.conf' and
+set the directive 'ServerTokens Prod' and restart Apache.","","
+The Linux distribution detected was : 
+ - Ubuntu 14.04 (trusty)
+","","","","","","None","","","","2005/05/15","2022/03/21","","",""
+"18638","","","None","172.31.25.29","tcp","80","Drupal Software Detection","A content management system is running on the remote web server.","Drupal, an open source content management system written in PHP, is
+running on the remote web server.","Ensure that the use of this software aligns with your organization's
+security and acceptable use policies.","https://www.drupal.org/","
+  URL     : http://ip-172-31-25-29.us-east-2.compute.internal/drupal
+  Version : 7.5
+","","","","","","None","","IAVT:0001-T-0586","","2005/07/07","2023/05/24","","",""
+"19506","","","None","172.31.25.29","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - The ping round trip time 
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - Whether the display of superseded patches is enabled
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 10.6.4
+Nessus build : 20005
+Plugin feed version : 202312150615
+Scanner edition used : Nessus Home
+Scanner OS : WINDOWS
+Scanner distribution : win-x86-64
+Scan type : Normal
+Scan name : Metasploitable
+Scan policy used : Basic Network Scan
+Scanner IP : 172.31.31.11
+Port scanner(s) : nessus_syn_scanner 
+Port range : 1-65535
+Ping RTT : 46.897 ms
+Thorough tests : no
+Experimental tests : no
+Plugin debugging enabled : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+Display superseded patches : yes (supersedence plugin launched)
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 30
+Max checks : 4
+Recv timeout : 5
+Backports : Detected
+Allow post-scan editing : Yes
+Nessus Plugin Signature Checking : Enabled
+Audit File Signature Checking : Disabled
+Scan Start Date : 2023/12/16 5:18 UTC
+Scan duration : 480 sec
+Scan for malware : no
+","","","","","","None","","","","2005/08/26","2023/07/31","","",""
+"22964","","","None","172.31.25.29","tcp","22","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An SSH server is running on this port.","","","","","","None","","","","2007/08/19","2023/07/10","","",""
+"22964","","","None","172.31.25.29","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port.","","","","","","None","","","","2007/08/19","2023/07/10","","",""
+"24260","","","None","172.31.25.29","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Response Code : HTTP/1.1 200 OK
+
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : yes
+Options allowed : (Not implemented)
+Headers :
+
+  Date: Sat, 16 Dec 2023 05:20:31 GMT
+  Server: Apache/2.4.7 (Ubuntu)
+  Vary: Accept-Encoding
+  Content-Length: 988
+  Keep-Alive: timeout=5, max=100
+  Connection: Keep-Alive
+  Content-Type: text/html;charset=UTF-8
+  
+Response Body :
+
+<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 3.2 Final//EN"">
+<html>
+ <head>
+  <title>Index of /</title>
+ </head>
+ <body>
+<h1>Index of /</h1>
+  <table>
+   <tr><th valign=""top""><img src=""/icons/blank.gif"" alt=""[ICO]""></th><th><a href=""?C=N;O=D"">Name</a></th><th><a href=""?C=M;O=A"">Last modified</a></th><th><a href=""?C=S;O=A"">Size</a></th><th><a href=""?C=D;O=A"">Description</a></th></tr>
+   <tr><th colspan=""5""><hr></th></tr>
+<tr><td valign=""top""><img src=""/icons/folder.gif"" alt=""[DIR]""></td><td><a href=""drupal/"">drupal/</a></td><td align=""right"">2011-07-27 20:17  </td><td align=""right"">  - </td><td>&nbsp;</td></tr>
+<tr><td valign=""top""><img src=""/icons/unknown.gif"" alt=""[   ]""></td><td><a href=""payroll_app.php"">payroll_app.php</a></td><td align=""right"">2022-06-29 13:56  </td><td align=""right"">1.7K</td><td>&nbsp;</td></tr>
+   <tr><th colspan=""5""><hr></th></tr>
+</table>
+<address>Apache/2.4.7 (Ubuntu) Server at ip-172-31-25-29.us-east-2.compute.internal Port 80</address>
+</body></html>
+","","","","","","None","","","","2007/01/30","2019/11/22","","",""
+"25220","","","None","172.31.25.29","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt","","","","","","","None","","","","2007/05/16","2023/10/17","","",""
+"39520","","","None","172.31.25.29","tcp","22","Backported Security Patch Detection (SSH)","Security patches are backported.","Security patches may have been 'backported' to the remote SSH server
+without changing its version number. 
+
+Banner-based checks have been disabled to avoid false positives. 
+
+Note that this test is informational only and does not denote any
+security problem.","n/a","https://access.redhat.com/security/updates/backporting/?sc_cid=3093","
+Give Nessus credentials to perform local checks.
+","","","","","","None","","","","2009/06/25","2015/07/07","","",""
+"39521","","","None","172.31.25.29","tcp","80","Backported Security Patch Detection (WWW)","Security patches are backported.","Security patches may have been 'backported' to the remote HTTP server
+without changing its version number.
+
+Banner-based checks have been disabled to avoid false positives.
+
+Note that this test is informational only and does not denote any
+security problem.","n/a","https://access.redhat.com/security/updates/backporting/?sc_cid=3093","
+Give Nessus credentials to perform local checks.
+","","","","","","None","","","","2009/06/25","2015/07/07","","",""
+"43111","","","None","172.31.25.29","tcp","80","HTTP Methods Allowed (per directory)","This plugin determines which HTTP methods are allowed on various CGI
+directories.","By calling the OPTIONS method, it is possible to determine which HTTP
+methods are allowed on each directory.
+
+The following HTTP methods are considered insecure:
+  PUT, DELETE, CONNECT, TRACE, HEAD
+
+Many frameworks and languages treat 'HEAD' as a 'GET' request, albeit
+one without any body in the response. If a security constraint was
+set on 'GET' requests such that only 'authenticatedUsers' could
+access GET requests for a particular servlet or resource, it would be
+bypassed for the 'HEAD' version. This allowed unauthorized blind
+submission of any privileged GET request.
+
+As this list may be incomplete, the plugin also tests - if 'Thorough
+tests' are enabled or 'Enable web applications tests' is set to 'yes'
+in the scan policy - various known HTTP methods on each directory and
+considers them as unsupported if it receives a response code of 400,
+403, 405, or 501.
+
+Note that the plugin output is only informational and does not
+necessarily indicate the presence of any security vulnerabilities.","n/a","http://www.nessus.org/u?d9c03a9a
+http://www.nessus.org/u?b019cbdb
+https://www.owasp.org/index.php/Test_HTTP_Methods_(OTG-CONFIG-006)","Based on the response to an OPTIONS request :
+
+  - HTTP methods GET HEAD OPTIONS POST are allowed on : 
+
+    /
+
+","","","","","","None","","","","2009/12/10","2022/04/11","","",""
+"45590","","","None","172.31.25.29","tcp","0","Common Platform Enumeration (CPE)","It was possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/products/cpe","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:canonical:ubuntu_linux:14.04 -> Canonical Ubuntu Linux
+
+Following application CPE's matched on the remote system : 
+
+  cpe:/a:apache:http_server:2.4.7 -> Apache Software Foundation Apache HTTP Server
+  cpe:/a:apache:http_server:2.4.99 -> Apache Software Foundation Apache HTTP Server
+  cpe:/a:drupal:drupal:7.5 -> Drupal
+  cpe:/a:openbsd:openssh:6.6 -> OpenBSD OpenSSH
+  cpe:/a:openbsd:openssh:6.6.1p1 -> OpenBSD OpenSSH
+","","","","","","None","","","","2010/04/21","2023/10/16","","",""
+"48204","","","None","172.31.25.29","tcp","80","Apache HTTP Server Version","It is possible to obtain the version number of the remote Apache HTTP
+server.","The remote host is running the Apache HTTP Server, an open source web
+server. It was possible to read the version number from the banner.","n/a","https://httpd.apache.org/","
+  URL        : http://ip-172-31-25-29.us-east-2.compute.internal/
+  Version    : 2.4.99
+  Source     : Server: Apache/2.4.7 (Ubuntu)
+  backported : 1
+  os         : ConvertedUbuntu
+","","","","","","None","","IAVT:0001-T-0030;IAVT:0001-T-0530","","2010/07/30","2023/08/17","","",""
+"54615","","","None","172.31.25.29","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 95
+","","","","","","None","","","","2011/05/23","2022/09/09","","",""
+"66293","","","None","172.31.25.29","tcp","0","Unix Operating System on Extended Support","The remote host is running an operating system that is on extended
+support.","According to its version, the remote host uses a Unix or Unix-like
+operating system that has transitioned to an extended portion in its
+support life cycle. Continued access to new security updates requires
+payment of an additional fee and / or configuration changes to the
+package management tool.  Without that, the host likely will be
+missing security updates.","Ensure that the host subscribes to the vendor's extended support
+plan and continues to receive security updates.","","Ubuntu 14.04 support ends on 2019-04-30 (end of maintenance) / 2024-04-30 (end of extended security maintenance).","","","","","","None","","IAVA:0001-A-0648","","2013/05/02","2023/05/10","","",""
+"70657","","","None","172.31.25.29","tcp","22","SSH Algorithms and Languages Supported","An SSH server is listening on this port.","This script detects which algorithms and languages are supported by
+the remote service for encrypting communications.","n/a","","
+Nessus negotiated the following encryption algorithm with the server : 
+
+The server supports the following options for kex_algorithms : 
+
+  curve25519-sha256@libssh.org
+  diffie-hellman-group-exchange-sha1
+  diffie-hellman-group-exchange-sha256
+  diffie-hellman-group1-sha1
+  diffie-hellman-group14-sha1
+  ecdh-sha2-nistp256
+  ecdh-sha2-nistp384
+  ecdh-sha2-nistp521
+
+The server supports the following options for server_host_key_algorithms : 
+
+  ecdsa-sha2-nistp256
+  ssh-dss
+  ssh-rsa
+
+The server supports the following options for encryption_algorithms_client_to_server : 
+
+  3des-cbc
+  aes128-cbc
+  aes128-ctr
+  aes128-gcm@openssh.com
+  aes192-cbc
+  aes192-ctr
+  aes256-cbc
+  aes256-ctr
+  aes256-gcm@openssh.com
+  arcfour
+  arcfour128
+  arcfour256
+  blowfish-cbc
+  cast128-cbc
+  chacha20-poly1305@openssh.com
+  rijndael-cbc@lysator.liu.se
+
+The server supports the following options for encryption_algorithms_server_to_client : 
+
+  3des-cbc
+  aes128-cbc
+  aes128-ctr
+  aes128-gcm@openssh.com
+  aes192-cbc
+  aes192-ctr
+  aes256-cbc
+  aes256-ctr
+  aes256-gcm@openssh.com
+  arcfour
+  arcfour128
+  arcfour256
+  blowfish-cbc
+  cast128-cbc
+  chacha20-poly1305@openssh.com
+  rijndael-cbc@lysator.liu.se
+
+The server supports the following options for mac_algorithms_client_to_server : 
+
+  hmac-md5
+  hmac-md5-96
+  hmac-md5-96-etm@openssh.com
+  hmac-md5-etm@openssh.com
+  hmac-ripemd160
+  hmac-ripemd160-etm@openssh.com
+  hmac-ripemd160@openssh.com
+  hmac-sha1
+  hmac-sha1-96
+  hmac-sha1-96-etm@openssh.com
+  hmac-sha1-etm@openssh.com
+  hmac-sha2-256
+  hmac-sha2-256-etm@openssh.com
+  hmac-sha2-512
+  hmac-sha2-512-etm@openssh.com
+  umac-128-etm@openssh.com
+  umac-128@openssh.com
+  umac-64-etm@openssh.com
+  umac-64@openssh.com
+
+The server supports the following options for mac_algorithms_server_to_client : 
+
+  hmac-md5
+  hmac-md5-96
+  hmac-md5-96-etm@openssh.com
+  hmac-md5-etm@openssh.com
+  hmac-ripemd160
+  hmac-ripemd160-etm@openssh.com
+  hmac-ripemd160@openssh.com
+  hmac-sha1
+  hmac-sha1-96
+  hmac-sha1-96-etm@openssh.com
+  hmac-sha1-etm@openssh.com
+  hmac-sha2-256
+  hmac-sha2-256-etm@openssh.com
+  hmac-sha2-512
+  hmac-sha2-512-etm@openssh.com
+  umac-128-etm@openssh.com
+  umac-128@openssh.com
+  umac-64-etm@openssh.com
+  umac-64@openssh.com
+
+The server supports the following options for compression_algorithms_client_to_server : 
+
+  none
+  zlib@openssh.com
+
+The server supports the following options for compression_algorithms_server_to_client : 
+
+  none
+  zlib@openssh.com
+","","","","","","None","","","","2013/10/28","2017/08/28","","",""
+"70658","CVE-2008-5161","2.6","Low","172.31.25.29","tcp","22","SSH Server CBC Mode Ciphers Enabled","The SSH server is configured to use Cipher Block Chaining.","The SSH server is configured to support Cipher Block Chaining (CBC)
+encryption.  This may allow an attacker to recover the plaintext message
+from the ciphertext. 
+
+Note that this plugin only checks for the options of the SSH server and
+does not check for vulnerable software versions.","Contact the vendor or consult product documentation to disable CBC mode
+cipher encryption, and enable CTR or GCM cipher mode encryption.","","
+The following client-to-server Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+  aes128-cbc
+  aes192-cbc
+  aes256-cbc
+  blowfish-cbc
+  cast128-cbc
+  rijndael-cbc@lysator.liu.se
+
+The following server-to-client Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+  aes128-cbc
+  aes192-cbc
+  aes256-cbc
+  blowfish-cbc
+  cast128-cbc
+  rijndael-cbc@lysator.liu.se
+","","3.7","1.9","","1.4","Low","32319","CERT:958563;CWE:200","","2013/10/28","2023/10/27","","",""
+"71049","","2.6","Low","172.31.25.29","tcp","22","SSH Weak MAC Algorithms Enabled","The remote SSH server is configured to allow MD5 and 96-bit MAC
+algorithms.","The remote SSH server is configured to allow either MD5 or 96-bit MAC
+algorithms, both of which are considered weak.
+
+Note that this plugin only checks for the options of the SSH server,
+and it does not check for vulnerable software versions.","Contact the vendor or consult product documentation to disable MD5 and
+96-bit MAC algorithms.","","
+The following client-to-server Message Authentication Code (MAC) algorithms
+are supported : 
+
+  hmac-md5
+  hmac-md5-96
+  hmac-md5-96-etm@openssh.com
+  hmac-md5-etm@openssh.com
+  hmac-sha1-96
+  hmac-sha1-96-etm@openssh.com
+
+The following server-to-client Message Authentication Code (MAC) algorithms
+are supported : 
+
+  hmac-md5
+  hmac-md5-96
+  hmac-md5-96-etm@openssh.com
+  hmac-md5-etm@openssh.com
+  hmac-sha1-96
+  hmac-sha1-96-etm@openssh.com
+","","","","","","Low","","","","2013/11/22","2016/12/14","","",""
+"78515","CVE-2014-3704","7.5","High","172.31.25.29","tcp","80","Drupal Database Abstraction API SQLi","The remote web server is running a PHP application that is affected by
+a SQL injection vulnerability.","The remote web server is running a version of Drupal that is affected
+by a SQL injection vulnerability due to a flaw in the Drupal database
+abstraction API, which allows a remote attacker to use specially
+crafted requests that can result in arbitrary SQL execution. This may
+lead to privilege escalation, arbitrary PHP execution, or remote code
+execution.","Upgrade to version 7.32 or later.","https://www.drupal.org/SA-CORE-2014-005
+https://www.drupal.org/project/drupal/releases/7.32","
+Nessus was able to exploit the issue using the following request :
+
+POST /drupal/?q=node&destination=node HTTP/1.1
+Host: ip-172-31-25-29.us-east-2.compute.internal
+Accept-Charset: iso-8859-1,utf-8;q=0.9,*;q=0.1
+Accept-Language: en
+Content-Type: application/x-www-form-urlencoded
+Connection: Keep-Alive
+Content-Length: 117
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+Pragma: no-cache
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*
+
+name[0;SELECT+@@version;#]=0;&name[0]=nessus&pass=nessus&test2=test&form_build_id=&form_id=user_login_block&op=Log+in
+
+
+This produced the following truncated output (limited to 5 lines) :
+------------------------------ snip ------------------------------
+>Warning</em>: mb_strlen() expects parameter 1 to be string, array given in <em class=""placeholder"">drupal_strlen()</em> (line <em class=""placeholder"">441</em> of <em class=""placeholder"">/var/www/html/drupal/includes/unicode.inc</em>).</li>
+<li><em class=""placeholder"">Warning</em>: addcslashes() expects parameter 1 to be string, array given in <em class=""placeholder"">DatabaseConnection-&gt;escapeLike()</em> (line <em class=""placeholder"">965</em> of <em class=""placeholder"">/var/www/html/drupal/includes/database/database.inc</em>).</li>
+<li>Sorry, unrecognized username or password. <a href=""/drupal/?q=user/password"">Have you forgotten your password?</a></li>
+</ul>
+</div>
+[...]
+
+------------------------------ snip ------------------------------
+","","","6.2","","7.4","High","70595","EDB-ID:34984;EDB-ID:34992;EDB-ID:34993;EDB-ID:35150","","2014/10/16","2022/04/11","true","true","true"
+"86420","","","None","172.31.25.29","tcp","0","Ethernet MAC Addresses","This plugin gathers MAC addresses from various sources and
+consolidates them into a list.","This plugin gathers MAC addresses discovered from both remote probing
+of the host (e.g. SNMP and Netbios) and from running local checks
+(e.g. ifconfig). It then consolidates the MAC addresses into a single,
+unique, and uniform list.","n/a","","The following is a consolidated list of detected MAC addresses:
+  - 06:1E:9F:4A:68:E5
+","","","","","","None","","","","2015/10/16","2020/05/13","","",""
+"90317","","4.3","Medium","172.31.25.29","tcp","22","SSH Weak Algorithms Supported","The remote SSH server is configured to allow weak encryption
+algorithms or no algorithm at all.","Nessus has detected that the remote SSH server is configured to use
+the Arcfour stream cipher or no cipher at all. RFC 4253 advises
+against using Arcfour due to an issue with weak keys.","Contact the vendor or consult product documentation to remove the weak
+ciphers.","https://tools.ietf.org/html/rfc4253#section-6.3","
+The following weak server-to-client encryption algorithms are supported : 
+
+  arcfour
+  arcfour128
+  arcfour256
+
+The following weak client-to-server encryption algorithms are supported : 
+
+  arcfour
+  arcfour128
+  arcfour256
+","","","","","","Medium","","","","2016/04/04","2016/12/14","","",""
+"92626","","10.0","Critical","172.31.25.29","tcp","80","Drupal Coder Module Deserialization RCE","A PHP application running on the remote web server is affected by a
+remote code execution vulnerability.","The version of Drupal running on the remote web server is affected by
+a remote code execution vulnerability in the Coder module,
+specifically in file coder_upgrade.run.php, due to improper validation
+of user-supplied input to the unserialize() function. An
+unauthenticated, remote attacker can exploit this, via a specially
+crafted request, to execute arbitrary PHP code.","Upgrade the Coder module to version 7.x-1.3 / 7.x-2.6 or later.
+Alternatively, remove the entire Coder module directory from any
+publicly accessible website.","https://www.drupal.org/node/2765575
+https://www.drupal.org/project/coder","
+Nessus was able to exploit the issue using the following request :
+
+http://ip-172-31-25-29.us-east-2.compute.internal/drupal/sites/all/modules/coder/coder_upgrade/scripts/coder_upgrade.run.php
+
+
+This produced the following truncated output (limited to 10 lines) :
+------------------------------ snip ------------------------------
+file parameter is not setNo path to parameter file
+
+------------------------------ snip ------------------------------
+","","","8.3","","","Critical","","EDB-ID:40149","","2016/07/29","2022/04/11","","",""
+"110723","","","None","172.31.25.29","tcp","0","Target Credential Status by Authentication Protocol - No Credentials Provided","Nessus was able to find common ports used for local checks,
+however, no credentials were provided in the scan policy.","Nessus was not able to successfully authenticate directly to the
+remote target on an available authentication protocol. Nessus was
+able to connect to the remote port and identify that the service
+running on the port supports an authentication protocol, but Nessus
+failed to authenticate to the remote service using the provided
+credentials. There may have been a protocol failure that prevented
+authentication from being attempted or all of the provided credentials
+for the authentication protocol may be invalid. See plugin output for
+error details.
+
+Please note the following :
+
+- This plugin reports per protocol, so it is possible for
+  valid credentials to be provided for one protocol and not
+  another. For example, authentication may succeed via SSH
+  but fail via SMB, while no credentials were provided for
+  an available SNMP service.
+
+- Providing valid credentials for all available
+  authentication protocols may improve scan coverage, but
+  the value of successful authentication for a given
+  protocol may vary from target to target depending upon
+  what data (if any) is gathered from the target via that
+  protocol. For example, successful authentication via SSH
+  is more valuable for Linux targets than for Windows
+  targets, and likewise successful authentication via SMB
+  is more valuable for Windows targets than for Linux
+  targets.","n/a","","SSH was detected on port 22 but no credentials were provided.
+SSH local checks were not enabled.
+
+","","","","","","None","","IAVB:0001-B-0504","","2018/06/27","2023/02/13","","",""
+"117886","","","None","172.31.25.29","tcp","0","OS Security Patch Assessment Not Available","OS Security Patch Assessment is not available.","OS Security Patch Assessment is not available on the remote host.
+This does not necessarily indicate a problem with the scan.
+Credentials may not have been provided, OS security patch assessment
+may not be supported for the target, the target may not have been
+identified, or another issue may have occurred that prevented OS
+security patch assessment from being available. See plugin output for
+details.
+
+This plugin reports non-failure information impacting the availability
+of OS Security Patch Assessment. Failure information is reported by
+plugin 21745 : 'OS Security Patch Assessment failed'.  If a target
+host is not supported for OS Security Patch Assessment, plugin
+110695 : 'OS Security Patch Assessment Checks Not Supported' will
+report concurrently with this plugin.","n/a","","
+The following issues were reported :
+
+  - Plugin      : no_local_checks_credentials.nasl
+    Plugin ID   : 110723
+    Plugin Name : Target Credential Status by Authentication Protocol - No Credentials Provided
+    Message     : 
+Credentials were not provided for detected SSH service.
+","","","","","","None","","IAVB:0001-B-0515","","2018/10/02","2021/07/12","","",""
+"149334","","","None","172.31.25.29","tcp","22","SSH Password Authentication Accepted","The SSH server on the remote host accepts password authentication.","The SSH server on the remote host accepts password authentication.","n/a","https://tools.ietf.org/html/rfc4252#section-8","","","","","","","None","","","","2021/05/07","2021/05/07","","",""
+"153588","","","None","172.31.25.29","tcp","22","SSH SHA-1 HMAC Algorithms Enabled","The remote SSH server is configured to enable SHA-1 HMAC algorithms.","The remote SSH server is configured to enable SHA-1 HMAC algorithms.
+
+Although NIST has formally deprecated use of SHA-1 for digital signatures, SHA-1 is still considered secure for HMAC as
+the security of HMAC does not rely on the underlying hash function being resistant to collisions.
+
+Note that this plugin only checks for the options of the remote SSH server.","n/a","","
+The following client-to-server SHA-1 Hash-based Message Authentication Code (HMAC) algorithms are supported : 
+
+  hmac-sha1
+  hmac-sha1-96
+  hmac-sha1-96-etm@openssh.com
+  hmac-sha1-etm@openssh.com
+
+The following server-to-client SHA-1 Hash-based Message Authentication Code (HMAC) algorithms are supported : 
+
+  hmac-sha1
+  hmac-sha1-96
+  hmac-sha1-96-etm@openssh.com
+  hmac-sha1-etm@openssh.com
+","","","","","","None","","","","2021/09/23","2022/04/05","","",""
+"153953","","2.6","Low","172.31.25.29","tcp","22","SSH Weak Key Exchange Algorithms Enabled","The remote SSH server is configured to allow weak key exchange algorithms.","The remote SSH server is configured to allow key exchange algorithms which are considered weak.
+
+This is based on the IETF draft document Key Exchange (KEX) Method Updates and Recommendations for Secure Shell (SSH)
+draft-ietf-curdle-ssh-kex-sha2-20. Section 4 lists guidance on key exchange algorithms that SHOULD NOT and MUST NOT be
+enabled. This includes:
+
+  diffie-hellman-group-exchange-sha1
+
+  diffie-hellman-group1-sha1
+
+  gss-gex-sha1-*
+
+  gss-group1-sha1-*
+
+  gss-group14-sha1-*
+
+  rsa1024-sha1
+
+Note that this plugin only checks for the options of the SSH server, and it does not check for vulnerable software
+versions.","Contact the vendor or consult product documentation to disable the weak algorithms.","http://www.nessus.org/u?b02d91cd
+https://datatracker.ietf.org/doc/html/rfc8732","
+The following weak key exchange algorithms are enabled : 
+
+  diffie-hellman-group-exchange-sha1
+  diffie-hellman-group1-sha1
+","","3.7","","","","Low","","","","2021/10/13","2021/10/13","","",""
+"181418","","","None","172.31.25.29","tcp","22","OpenSSH Detection","An OpenSSH-based SSH server was detected on the remote host.","An OpenSSH-based SSH server was detected on the remote host.","n/a","https://www.openssh.com/","
+  Path         : /
+  Version      : 6.6.1p1
+  Distribution : ubuntu-2ubuntu2
+","","","","","","None","","","","2023/09/14","2023/12/14","","",""
